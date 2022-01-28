@@ -80,5 +80,5 @@ def imagetag(request , id):
             messages.success(request, 'File name updated')
             return render(request, 'imagetag.html' )
 
-    return render(request, 'imagetag.html', {'allimages': allimages})
+    return render(request, 'imagetag.html')
     
