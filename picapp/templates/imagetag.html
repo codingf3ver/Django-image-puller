@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+  {% block body %}
+  <div class="container my-5">
+    {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show fixed-top" style="margin-top:50px;" role="alert">
+    <strong >Message ! </strong> {{ message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  </div>
+    <div class="container my-5">
+      {% if 'prev' %}
+              <img src="{{prev.file.url}}" width="300" />    
+      {% elif 'next'%}
+              <img src="{{next.file.url}}" width="300" />
+      {% else %}
+              <img src="1.jpg" width="300" />      
+      {% endif %}
+        
+    </div>
+    
+
+    <div class="container my-3">
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              {% if 'fname_prev' %}
+                <input type="text" name='upd_name' placeholder = "{{fname_prev}}" class="form-control" >
+              {% else %}
+                <input type="text" name='upd_name' placeholder = "{{fname_next}}" class="form-control" >
+              {% endif %}
+            </div>
+            <div class="col-auto">
+              <button type = "submit"  class="btn btn-primary">Update File Name</button>
+            </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="container my-3">
+      <form action="#" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <button   type="submit"  name="prev"  class="btn btn-primary">Previous</button>
+                </div>
+              <div class="col-auto mx-4">
+                <button type="submit" name="next"  class="btn btn-primary">Next</button>
+            </div>
+          </div>
+      </form>
+    </div>
+
+  
+  {% endblock body %}
+  
