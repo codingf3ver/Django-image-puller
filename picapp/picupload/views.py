@@ -73,13 +73,12 @@ def imagetag(request , id):
             # Note: 'fname_nxt' is used in html to display filename 
 
         # file name updated 
-        if request.POST.get('update_fname'):
-            new_fname = request.POST.get('update_fname')
+        if request.POST.get('upd_name'):
+            new_fname = request.POST.get('upd_name')
             allimages.file.name = new_fname
             allimages.save()
             messages.success(request, 'File name updated')
-            return redirect('imagetag/', id=id)
-            
+            return render(request, 'imagetag.html' )
 
     return render(request, 'imagetag.html', {'allimages': allimages})
     
