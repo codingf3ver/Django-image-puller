@@ -10,7 +10,7 @@ def home(request):
         # list of files uploaded
         files = request.FILES.getlist('files')
 
-        # if no files uploaded
+        # if no files uploaded then it will produce an error
         if len(files) < 1:
             messages.error(request, 'No files selected')
             return render(request, 'home.html')
