@@ -4,6 +4,7 @@
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
         <label for="formFileMultiple" class="form-label">Multifile Uploader Application</label>
+            <!-- particular extension            -->
         <input class="form-control" name="files" type="file" id="formFileMultiple" accept=".jfif,.jpg,.jpeg,.png,.gif" multiple   />
         <button class="btn btn-primary my-2" type="submit">Upload</button>
     </form>
