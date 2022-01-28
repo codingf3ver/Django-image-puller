@@ -86,11 +86,11 @@ WSGI_APPLICATION = 'picapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'mysql.connector.django'
+       
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'photoupload',#os.environ.get('PHOTO_DB_NAME'),
-        'USER': 'test',#os.environ.get('PHOTO_DB_USER'),
-        'PASSWORD': 'sql123',#os.environ.get('PHOTO_PASS'),
+        'NAME': os.environ.get('PHOTO_DB_NAME'),
+        'USER': os.environ.get('PHOTO_DB_USER'),
+        'PASSWORD': os.environ.get('PHOTO_PASS'),
         'HOST': '127.0.0.1',
         'PORT': '3306',
         
@@ -139,9 +139,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# media root folder for pulling images or storing in local storage
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# custome messages for handling errors
 MESSAGE_TAGS = {
     messages.DEBUG: 'info',
     messages.INFO: 'info',
